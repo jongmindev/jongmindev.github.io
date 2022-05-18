@@ -1,7 +1,8 @@
 ---
 layout : default
-title : Matrix Calculus
+title : 01 Matrix Calculus
 nav_order : 1
+math: mathjax3
 parent : Linear Algebra Basic
 ---
 
@@ -11,25 +12,27 @@ parent : Linear Algebra Basic
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
 ## 1. Calculus on Manifolds - Differentiation
 
-$$ \overrightarrow{\mathbf{f}} : \mathbf{R}^n \rightarrow \mathbf{R}^m $$
-$$ \overrightarrow{\mathbf{x}} \in \mathbf{R}^n : \text{domain}f $$
+$$ \overrightarrow{\mathbf{f}} : \mathbb{R}^n \rightarrow \mathbb{R}^m $$
+
+$$ \overrightarrow{\mathbf{x}} \in \mathbb{R}^n : \text{domain}f $$
+
 $$ \frac{\partial \overrightarrow{\mathbf{f}}}{\partial \overrightarrow{\mathbf{x}}} = 
     \begin{bmatrix}
         \vert & & \vert \\
         \frac{\partial f_1}{\partial \overrightarrow{\mathbf{x}}} & \cdots & \frac{\partial f_m}{\partial \overrightarrow{\mathbf{x}}}\\
         \vert & & \vert \\
     \end{bmatrix} 
-    \text{ : always based on the denominator vectors}
 $$
 
-## 1+. examples
+### examples
+: always based on the denominator vectors ([denominator-layout notation](https://en.wikipedia.org/wiki/Matrix_calculus#Denominator-layout_notation))
 
 $$ \frac{\partial f}{\partial \overrightarrow{\mathbf{x}}} = 
     \begin{bmatrix}
