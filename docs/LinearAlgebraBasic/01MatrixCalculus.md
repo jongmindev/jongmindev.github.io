@@ -3,7 +3,6 @@ layout : default
 title : Matrix Calculus
 nav_order : 1
 parent : Linear Algebra Basic
-<!-- last 4 are optional -->
 ---
 
 # Matrix Calculus (Denominator layout)
