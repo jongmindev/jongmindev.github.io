@@ -106,5 +106,6 @@ $U$, $V$ : orthonormal singular vectors
 ## 4+. Polar Decomposition
 
 $$ A = U \Sigma V^T = (UV^T)(V\Sigma V^T) = QS $$
+
 $Q$ : orthogonal (rotation)  
 $S$ : symmetric (stretching)
