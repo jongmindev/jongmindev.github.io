@@ -148,6 +148,6 @@ counterexample : $ M = \begin{pmatrix} 1 & 0.1 \\\\ 0 & 1 \end{pmatrix} $ is pos
 pf) $x^TA^TAx = <Ax, Ax> = ||Ax|| \ge 0.$ By letting $A^T = B$, $AA^T$ is also.  
 
 4. Is $A^TA$ positive definite? : No!  
-![](images/image0701.png)
+![proof](/docs/LinearAlgebraBasic/images/image0701.png)
 
 5. 

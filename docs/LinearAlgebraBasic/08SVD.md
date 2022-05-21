@@ -47,8 +47,8 @@ $V_{r \times n}$ → orthonormal basis of $C(A^T)$
 ## 2. Geometric Interpretation
 - $ A = U \Sigma V^T $ : orthogonal $\times$ diagonal $\times$ orthogonal  
 $\implies$ rotation $\times$ vertical/horizontal stretching $\times$ rotation **: iso-angle**
-- orthonormal vector set $\xrightarrow{A\text{:linear transform}}$ orthogonal vector set (scalar $\sigma_i$ multipled orthonormal)
-![https://raw.githubusercontent.com/angeloyeo/angeloyeo.github.io/master/pics/2019-08-01_SVD/pic2.gif](images/image0802.gif)
+- orthonormal vector set $\xrightarrow{A\text{:linear transform}}$ orthogonal vector set (scalar $\sigma_i$ multipled orthonormal)  
+![https://raw.githubusercontent.com/angeloyeo/angeloyeo.github.io/master/pics/2019-08-01_SVD/pic2.gif](/docs/LinearAlgebraBasic/images/image0802.gif)
 
 
 ## 3. Eckart-Young Theorem
@@ -73,8 +73,8 @@ $A$ is the nearest matrix with rank $k$.
 - $A$ : square $\implies \forall \lvert \lambda \rvert \le \sigma _1$
 - $A=\mathbf{xy}^T$ : rank $1$ $\implies \mathbf{u}_1 = \dfrac{\mathbf{x}}{\lVert \mathbf{x} \rVert}, \quad \mathbf{v}_1 = \dfrac{\mathbf{y}}{\lVert \mathbf{y} \rVert}, $  
 $\lvert \lambda_1 \rvert = \lvert \mathbf{y}^T\mathbf{x} \rvert \le \sigma_1 = \lVert \mathbf{y} \rVert \ \lVert \mathbf{x} \rVert $  : Schwarz inequality
-- $U, V$ gives orthonormal basis for all 4 Fundamental Subspaces
-![SVD and 4 fundamental subspaces](images/image0801.jpg)
+- $U, V$ gives orthonormal basis for all 4 Fundamental Subspaces  
+![SVD and 4 fundamental subspaces](/docs/LinearAlgebraBasic/images/image0801.jpg)
 
 ## Reference
 - Gilbert Strang, LINEAR ALGEBRA AND ITS APPLICATIONS (4th)

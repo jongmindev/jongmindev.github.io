@@ -47,7 +47,7 @@ $$ X^TX\hat{\mathbf{\theta}} = X^T\mathbf{y} $$
 ### (4) geometric interpretation of error $\mathbf{\epsilon}$
 **basis direction distance** from target data $\mathbf{y}$ to regression **hyperplain** $\mathbf{x}^T\mathbf{\theta}$
 
-|![geometric comparison](images/image0901.png)|
+|![geometric comparison](/docs/LinearAlgebraBasic/images/image0901.png)|
 |:---:|
 |(left) LSE / (right) PCA|
 

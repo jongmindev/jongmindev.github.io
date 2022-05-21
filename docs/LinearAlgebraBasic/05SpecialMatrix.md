@@ -112,4 +112,4 @@ $$H_n = I_n - 2\mathbf{u}\mathbf{u^T}$$
 where $\mathbf{u}$ is a unit vector
 
 - Properties :  
-![](images/image0501.png)
+![Householder matrix properties](/docs/LinearAlgebraBasic/images/image0501.png)

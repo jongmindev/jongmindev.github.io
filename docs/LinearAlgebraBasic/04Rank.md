@@ -33,7 +33,7 @@ $$ f : V \rightarrow W $$
 $$ \text{dim} V = \text{dim Im} f + \text{dim Ker} f$$
 
 ## 2. The Four Fundamental Subspaces ★★★
-![The big picture](images/image0401.png)
+![The big picture](/docs/LinearAlgebraBasic/images/image0401.png)
 
 $$ A \mathbf{x} = \mathbf{0} $$
 
