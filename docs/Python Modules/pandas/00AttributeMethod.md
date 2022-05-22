@@ -1,7 +1,8 @@
 ---
 layout : default
 title : pandas
-nav_order : 3
+nav_order : 1
+parent : Python Modules
 has_children : true
 ---
 

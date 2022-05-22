@@ -2,6 +2,7 @@
 layout : default
 title : 06 Combining
 nav_order : 6
+grand_parent : Python Modules
 parent : pandas
 ---
 

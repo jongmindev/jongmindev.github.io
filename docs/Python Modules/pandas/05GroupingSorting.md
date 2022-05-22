@@ -2,6 +2,7 @@
 layout : default
 title : 05 Grouping Sorting
 nav_order : 5
+grand_parent : Python Modules
 parent : pandas
 ---
 

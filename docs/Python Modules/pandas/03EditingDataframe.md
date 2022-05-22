@@ -2,6 +2,7 @@
 layout : default
 title : 03 Editing Dataframe
 nav_order : 3
+grand_parent : Python Modules
 parent : pandas
 ---
 

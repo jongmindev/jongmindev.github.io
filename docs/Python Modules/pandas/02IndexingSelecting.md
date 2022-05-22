@@ -2,6 +2,7 @@
 layout : default
 title : 02 Indexing, Selecting
 nav_order : 2 
+grand_parent : Python Modules
 parent : pandas
 ---
 

@@ -2,6 +2,7 @@
 layout : default
 title : 04 Relabeling Naming
 nav_order : 4
+grand_parent : Python Modules
 parent : pandas
 math : mathjax3
 ---
