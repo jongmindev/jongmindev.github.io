@@ -19,14 +19,14 @@ GitHub blog as a personal wiki
 ## Contents
 
 1. Linear Algebra Basic
-
+2. Python Modules
+    - pandas
 
 ## Comming Soon
 
-1. Python Libraries
+1. Python Modules
     - built-in
     - numpy
-    - pandas
     - sklearn
 
 2. Data Analysis
