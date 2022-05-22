@@ -1,6 +1,6 @@
 ---
 layout : default
-title : 05 Special Matrix
+title : 05 Special Matrices
 nav_order : 5
 math: mathjax3
 parent : Linear Algebra Basic

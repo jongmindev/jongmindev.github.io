@@ -1,6 +1,6 @@
 ---
 layout : default
-title : 06 Eigenvalue, Eigenvector
+title : 06 Eigenvalues, Eigenvectors
 nav_order : 6
 math: mathjax3
 parent : Linear Algebra Basic
