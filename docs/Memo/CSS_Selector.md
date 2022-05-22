@@ -26,7 +26,7 @@ parent : Memo
 |.class||
 |#id||
 |[attribute="value"]|[img src="url"]|
-|element:nth-child(n)|p:nth-child(2) </br> → 2nd \<p> of its parent|
+|element:nth-child(n)|p:nth-child(2) <br/> → 2nd \<p> of its parent|
 |* (all)||
 
 ## Operators
