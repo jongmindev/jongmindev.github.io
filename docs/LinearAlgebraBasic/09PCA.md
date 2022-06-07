@@ -51,25 +51,25 @@ $$ X^TX\hat{\mathbf{\theta}} = X^T\mathbf{y} $$
 |:---:|
 |(left) LSE / (right) PCA|
 
-## PCA
+## 1. PCA (to 1-dim)
 
-## 1. geometric interpretation
+### (1) geometric interpretation
 
-$$\min\limits_{\overrightarrow{\mathbf{e}}} D(\overrightarrow{\mathbf{e}})$$
+$$\min\limits_{\overrightarrow{\mathbf{e}}} d(\overrightarrow{\mathbf{e}})$$
 
-$D(\overrightarrow{\mathbf{e}})$ : distance from target data $\mathbf{y}$ to **orthogonal projection** onto an **1-d line** with unit direction vector $\overrightarrow{\mathbf{e}}$
+$d(\overrightarrow{\mathbf{e}})$ : distance from target data $\mathbf{y}$ to **orthogonal projection** onto an **1-d line** with unit direction vector $\overrightarrow{\mathbf{e}}$
 
-## 2. solution
+### (2) solution
 
 $$\overrightarrow{\mathbf{e}} = \mathbf{u}_1$$
 
 $\mathbf{u}_1$ : the 1st singular vector of centralized dataset $X$
 
-## 3. proof
+### (3) proof
 Let $P = \mathbf{e}\mathbf{e}^T$. Then $P^2 = P = P^T$ since $\mathbf{e}$ is a unit.  
 Thus $P$ is an orthogonal projection matrix onto $C(P) = \text{span}(\mathbf{\{e\}})$.  
 
-$$ D(\mathbf{e}) = \sum_{i=1}^{m}\lVert\mathbf{x}_i-P\mathbf{x}_i\lVert $$
+$$ d(\mathbf{e}) = \sum_{i=1}^{m}\lVert\mathbf{x}_i-P\mathbf{x}_i\lVert $$
 
 $\mathbf{x}_i$ : $i$ th data ($i$ th row of $X$)
 
@@ -88,7 +88,7 @@ Thus,
 
 $$
 \begin{align*}
-    D(\mathbf{e}) &= \sum_{i=1}^{m} \lVert \mathbf{x}_i-P\mathbf{x}_i \rVert \\ &=
+    d(\mathbf{e}) &= \sum_{i=1}^{m} \lVert \mathbf{x}_i-P\mathbf{x}_i \rVert \\ &=
     \sum_{i=1}^{m}(\mathbf{x}_i^T\mathbf{x}_i-\mathbf{x}_i^T\mathbf{e}\mathbf{e}^T\mathbf{x}_i) \\ &=
     \sum_{i=1}^{m}\mathbf{x}_i^T\mathbf{x}_i - \sum_{i=1}^{m} (\mathbf{x}_i^T\mathbf{e})^2 \ (\because \mathbf{x}_i^T\mathbf{e} = \mathbf{e}^T\mathbf{x}_i \text{ : scalar}) \\ &=
     \sum_{i=1}^{m}\mathbf{x}_i^T\mathbf{x}_i - \lVert X\mathbf{e} \rVert \\ &=
@@ -99,7 +99,7 @@ $$
 Thus, 
 
 $$
-\min\limits_{\lVert\mathbf{e}\rVert=1}D(\mathbf{e}) \iff
+\min\limits_{\lVert\mathbf{e}\rVert=1}d(\mathbf{e}) \iff
 \max\limits_{\lVert\mathbf{e}\rVert=1} (\mathbf{e}^TX^T X\mathbf{e})
 $$
 
@@ -114,14 +114,17 @@ Hence
 
 $$
 \begin{align*}
-    \mathop{\text{argmin}}\limits_{\lVert\mathbf{e}\rVert=1}D(\mathbf{e}) &= 
+    \mathop{\text{argmin}}\limits_{\lVert\mathbf{e}\rVert=1}d(\mathbf{e}) &= 
     \text{eigenvector of } X^TX \text{ (corresponding to the largest eigenvalue)} \\ &=
     \text{1st right singular vector } \mathbf{v}_1 \text{ of } X = U\Sigma V^T
 \end{align*}
 $$
 
+이때 singular vector $\mathbf{v}_1$ 을 주성분이라 한다.  
+일반화하여 $n$-dimension $(n \ge 2)$ 으로 차원축소하는 경우, leading singular vectors 들이 주성분이 된다.
 
-## 4. Statistical View
+
+### (4) Statistical View
 Assume that dataset $X$ is centralized. ($X \leftarrow X- \underset{col}{E}(X)$)  
 Let $V=\dfrac{1}{m-1}X^TX$, then $V$ is the (sample) covariance matrix of dataset since for $V=(v_{ij})_{(n+1)\times(n+1)}$, 
 
@@ -146,12 +149,13 @@ Thus,
 
 $$
 \begin{align*}
-    \min\limits_{\lVert\mathbf{e}\rVert=1}D(\mathbf{e}) &\iff
+    \min\limits_{\lVert\mathbf{e}\rVert=1}d(\mathbf{e}) &\iff
     \max\limits_{\lVert\mathbf{e}\rVert=1} \mathbf{e}^TV\mathbf{e} \\ &\iff
     \max\limits_{\lVert\mathbf{e}\rVert=1} \text{Var}( \ \lVert \text{data projection onto }\mathbf{e}\rVert \ )
 \end{align*}
 $$
 
+결과적으로 데이터의 분산을 최대로 보존하는 방향으로 projection 을 함으로써, 차원을 축소하면서도 정보 손실을 최소화(MSE를 기준으로)한다.  
 
 ## Reference
-- http://matrix.skku.ac.kr/math4ai-intro/W12/
+- [http://matrix.skku.ac.kr/math4ai-intro/W12/](http://matrix.skku.ac.kr/math4ai-intro/W12/)
