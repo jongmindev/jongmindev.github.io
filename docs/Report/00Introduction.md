@@ -1,7 +1,7 @@
 ---
 layout : default
 title : Markov Process and Expected Value
-nav_order : 3
+nav_order : 4
 math: mathjax3
 has_children : true
 ---
