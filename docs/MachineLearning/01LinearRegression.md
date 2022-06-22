@@ -1,12 +1,12 @@
 ---
 layout : default
-title : 01Regression
+title : 01 Linear Regression
 nav_order : 1
 math: mathjax3
 parent : Machine Learning
 ---
 
-# Regression
+# Linear Regression
 {: .no_toc }
 
 ## Table of contents
@@ -17,15 +17,15 @@ parent : Machine Learning
 
 ---
 
-## 1. Linear Regression
+## 1. Multiple Linear Regression
 
 ### model
 
 - response variable $y$, responding regressor variables $\{x_i\}_k$
-- $y = \theta_0 + \theta_1 x_1+ \theta_2 x_2 + \cdots + \theta_k x_k + \epsilon$ for each response variable values  
+- $y = w_0 + w_1 x_1+ w_2 x_2 + \cdots + w_k x_k + \epsilon$ for each response variable values  
 $\epsilon \overset{\text{iid}}{\sim} N(0, \sigma^2)$
 - matrix notation :  
-$\mathbf{y} = X\mathbf{\theta} + \mathbf{\epsilon} $  
+$\mathbf{y} = X\mathbf{w} + \mathbf{\epsilon} $  
 $\mathbf{\epsilon} \overset{\text{iid}}{\sim} N(\mathbf{0}, \sigma^2 I_n)$
 
 $$
@@ -49,13 +49,13 @@ X =
 
 \quad
 
-\mathbf{\theta} = 
+\mathbf{w} = 
 \begin{bmatrix}
-\theta_0 \\
-\theta_1 \\
-\theta_2 \\
+w_0 \\
+w_1 \\
+w_2 \\
 \vdots \\
-\theta_k
+w_k
 \end{bmatrix},
 
 \quad
@@ -72,7 +72,7 @@ $$
 ### Least-Square Estimation
 
 $$
-\underset{\mathbf{\theta}}{\text{min}} S(\mathbf{\theta}) = \sum_i \epsilon_i^2
+\underset{\mathbf{w}}{\text{min}} S(\mathbf{w}) = \sum_i \epsilon_i^2
 $$
 
 
@@ -82,43 +82,43 @@ $$
 \begin{align*}
     \sum_i \epsilon_i^2 
     &= \mathbf{\epsilon}^T \mathbf{\epsilon} \\
-    &= (\mathbf{y} - X\mathbf{\theta})^T (\mathbf{y} - X\mathbf{\theta}) \\
-    &= \mathbf{y}^T \mathbf{y} - 2\mathbf{y}^T X \mathbf{\theta} + \mathbf{\theta}^T X^T X \mathbf{\theta} \quad (\because \text{scalar})
+    &= (\mathbf{y} - X\mathbf{w})^T (\mathbf{y} - X\mathbf{w}) \\
+    &= \mathbf{y}^T \mathbf{y} - 2\mathbf{y}^T X \mathbf{w} + \mathbf{w}^T X^T X \mathbf{w} \quad (\because \text{scalar})
 \end{align*}
 $$
 
 Thus, from
 
 $$
-\left. \frac{\partial S(\mathbf{\theta})}{\partial \mathbf{\theta}} \right\vert _{\hat{\mathbf{\theta}}} = - 2 X^T \mathbf{y} + 2 X^T X \hat{\mathbf{\theta}} = 0
+\left. \frac{\partial S(\mathbf{w})}{\partial \mathbf{w}} \right\vert _{\hat{\mathbf{w}}} = - 2 X^T \mathbf{y} + 2 X^T X \hat{\mathbf{w}} = 0
 $$
 
 we obtain
 
 $$
-X^T X \hat{\mathbf{\theta}} = X^T \mathbf{y}
+X^T X \hat{\mathbf{w}} = X^T \mathbf{y}
 $$
 
 
 ### gradient descent
 
 $$
-L(\mathbf{\theta}) = \frac{1}{2k} S(\mathbf{\theta})
+\mathcal{L}(\mathbf{w}) = \frac{1}{2k} S(\mathbf{w})
 $$
 
-parameter update : $\mathbf{\theta}_{i+1} = \mathbf{\theta}_i - \alpha L^\prime(\mathbf{\theta}) $ for a learning rate $\alpha$
+parameter update : $\mathbf{w} \leftarrow \mathbf{w} - \alpha \mathcal{L}^\prime(\mathbf{w}) $ for a learning rate $\alpha$
 
 From 
 
 $$ 
-L^\prime(\mathbf{\theta}) = \dfrac{1}{k} X^T (X \mathbf{\theta} - \mathbf{y}) $$
+\mathcal{L}^\prime(\mathbf{w}) = \dfrac{1}{k} X^T (X \mathbf{w} - \mathbf{y}) $$
 
 we obtain
 
 $$
-\mathbf{\theta} 
+\mathbf{w} 
 \leftarrow 
-\mathbf{\theta} - \alpha \cdot \frac{1}{k} X^T (X \mathbf{\theta} - \mathbf{y})
+\mathbf{w} - \alpha \cdot \frac{1}{k} X^T (X \mathbf{w} - \mathbf{y})
 $$
 
 
@@ -127,19 +127,19 @@ $$
 ### *k*th-order polynomial regression model in one variable
 
 $$
-y = \theta_0 + \theta_1 x + \theta_2 x^2 + \cdots + \theta_k x^k + \epsilon
+y = w_0 + w_1 x + w_2 x^2 + \cdots + w_k x^k + \epsilon
 $$
 
 ### second-order polynomial regression model in two variables
 
 $$
-y = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_{11} x_1^2 + \theta_{12} x_1 x_2 + \theta_{22} x_2^2 + \epsilon
+y = w_0 + w_1 x_1 + w_2 x_2 + w_{11} x_1^2 + w_{12} x_1 x_2 + w_{22} x_2^2 + \epsilon
 $$
 
 ### piecewise linear regression
 
 $$
-y = \theta_0 + \theta_1 x + \theta_2 (x-t)_+ + \epsilon
+y = w_0 + w_1 x + w_2 (x-t)_+ + \epsilon
 $$
 
 ### orthogonal polynomial regression
