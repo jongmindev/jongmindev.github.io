@@ -76,7 +76,7 @@ $$
 $$
 
 
-### 정규방정식
+### normal equation
 
 $$ 
 \begin{align*}
@@ -108,7 +108,10 @@ $$
 
 parameter update : $\mathbf{\theta}_{i+1} = \mathbf{\theta}_i - \alpha L^\prime(\mathbf{\theta}) $ for a learning rate $\alpha$
 
-From $ L^\prime(\mathbf{\theta}) = \dfrac{1}{k} X^T (X \mathbf{\theta} - \mathbf{y}) $,
+From 
+
+$$ 
+L^\prime(\mathbf{\theta}) = \dfrac{1}{k} X^T (X \mathbf{\theta} - \mathbf{y}) $$
 
 we obtain
 
@@ -119,3 +122,34 @@ $$
 $$
 
 
+## 2. Polynomial Regression
+
+### *k*th-order polynomial regression model in one variable
+
+$$
+y = \theta_0 + \theta_1 x + \theta_2 x^2 + \cdots + \theta_k x^k + \epsilon
+$$
+
+### second-order polynomial regression model in two variables
+
+$$
+y = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_{11} x_1^2 + \theta_{12} x_1 x_2 + \theta_{22} x_2^2 + \epsilon
+$$
+
+### piecewise linear regression
+
+$$
+y = \theta_0 + \theta_1 x + \theta_2 (x-t)_+ + \epsilon
+$$
+
+### orthogonal polynomial regression
+
+$$
+y = \alpha_0 P_0(x) + \alpha_1 P_1(x) + \cdots + \alpha_k P_k(x) + \epsilon
+$$
+
+where $P(x)$ is the *j*th order orthogonal polynomial defined as
+
+$$
+\sum_{i=1}^n P_r(x_i)  P_s(x_i) = 0, \quad r \ne s \quad \text{and} \quad P_0(x_i) = 1
+$$
