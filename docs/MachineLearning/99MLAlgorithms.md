@@ -1,7 +1,7 @@
 ---
 layout : default
 title : Algorithms
-nav_order : 1
+nav_order : 99
 math: mathjax3 
 parent : Machine Learning
 ---
@@ -21,7 +21,7 @@ parent : Machine Learning
 k Nearest Neighbor classifier
 
 1. How To  
-For the query data point, find the *k* *closest* training data points,  
+For the *query* data point, find the **k** **closest** training data points,  
 and predict using their labels.
 
 2. Hyper Parameter  
