@@ -27,13 +27,15 @@ parent : Statistics
  - 가법성  
     - $A,B:\text{independent} \implies I(A\cap B)=I(A)+I(B)$
 
+
 ### (2) self-information
 
 $$ I(X=x) = - \log P(x) $$
 
 where X : discrete random variable.
 
-### (3) Shannon Entropy $H(P)$
+
+### (3) Shannon Entropy $H(P)$ : expected quantity of information
 
 $$ H(P) = H(x) = E_{x \sim P} [I(x)] = E_{x \sim P} [- \log P(x)]$$
 
@@ -41,9 +43,31 @@ $$ H(P) = \sum_x -P(x) \log P(x) $$
 
 where $P$ is a probability distribution of $X$.
 
-### (4) Kullback-Leibler divergence; KLD
+> *(?) It gives a lower bound on the number of bits (if the logarithm is base 2, otherwise the units are different) needed on average to encode symbols drawn from a distribution P. (D)*
 
-$$ D_{KL}(P \Vert Q) = E_{x\sim P} \Big[ \log \frac{P(x)}{Q(x)} \Big] = \sum_x \big[P(x) \log P(x) - P(x)\log Q(x) \big] $$
+
+### (4) Cross Entropy $H(P,Q)$
+
+$$ H(P,Q) = - E_{x \sim P} [\log Q(x)] = \sum_x -P(x) \log Q(x) $$
+
+> **Shannon’s source coding theorem**  
+*The cross entropy is the expected number of bits needed to compress some data samples drawn from distribution p using a code based on distribution q. (P)*
+
+*Commonalities* and *differences* with **Shannon Entropy** and **Kullback-Leibler divergence**?
+
+
+### (5) Kullback-Leibler divergence; KLD
+
+$$ 
+\begin{align*}
+D_{KL}(P \Vert Q) 
+&= E_{x\sim P} \Big[ \log \frac{P(x)}{Q(x)} \Big] \\
+&= \sum_x \big[P(x) \log P(x) - P(x)\log Q(x) \big] \\
+&= -H(P) + H(P, Q)
+\end{align*}
+$$
+
+> *The “extra number of bits” you need to pay when compressing data samples from p using the incorrect distribution q as the basis of your coding scheme. (P)*
 
  - properties : not a metric
     - nonnegative : $ D_{KL}(P \Vert Q) \ge 0 $ (equality holds as $P \equiv Q$) 
@@ -52,11 +76,9 @@ $$ D_{KL}(P \Vert Q) = E_{x\sim P} \Big[ \log \frac{P(x)}{Q(x)} \Big] = \sum_x \
 
 KLD 는 두 확률분포 $P$, $Q$ 의 차이를 계량화한다.  
 
-### (5) Cross Entropy $H(P,Q)$
+> *(?) In the case of discrete variables, it is the extra amount of information (measured in bits if we use the base 2 logarithm, but in machine learning we usually use nats and the natural logarithm) needed to send a message containing symbols drawn from probability distribution P, when we use a code that was designed to minimize the length of messages drawn from probability distribution Q. (D)*  
 
-$$ H(P,Q) = - E_{x \sim P} [\log Q(x)] = \sum_x -P(x) \log Q(x) $$
-
-*Commonalities* and *differences* with **Shannon Entropy** and **Kullback-Leibler divergence**?
+> P 의 방식으로 P 를 압축한 것에 비해, Q 의 방식으로 P 를 압축했을 때 생기는 비효율성?
 
 
 ## 2. Cross Entropy $H(P,Q)$ and KLD
@@ -76,8 +98,8 @@ $P(x)$ 를 데이터의 true 분포, $Q(x)$ 를 모델이 추정한 데이터의
 
 $$
 \begin{align*}
-\theta_{ML} &= \mathop{\text{argmax}}\limits_{\theta} P(X;\theta) \\ 
-&= \mathop{\text{argmax}}\limits_{\theta} \prod_{i=1}^m P(\mathbf{x}^{(i)};\theta)
+\theta_{ML} &= \mathop{\text{argmax}}\limits_{\theta} Q(X;\theta) \\ 
+&= \mathop{\text{argmax}}\limits_{\theta} \prod_{i=1}^m Q(\mathbf{x}^{(i)};\theta)
 \end{align*}
 $$
 
@@ -87,23 +109,29 @@ For calculation reasons, redefine $\theta_{ML}$ as below (scaled negative log-li
 
 $$
 \begin{align*}
-\theta_{ML} &= \frac{1}{m} \mathop{\text{argmin}}\limits_{\theta} -\log P(X;\theta) \\ 
-&= \mathop{\text{argmin}}\limits_{\theta} \frac{1}{m} \sum_{i=1}^m -\log P(\mathbf{x}^{(i)};\theta)
+\theta_{ML} &= \frac{1}{m} \mathop{\text{argmin}}\limits_{\theta} -\log Q(X;\theta) \\ 
+&= \mathop{\text{argmin}}\limits_{\theta} \frac{1}{m} \sum_{i=1}^m -\log Q(\mathbf{x}^{(i)};\theta)
 \end{align*}
 $$
 
-이때, $\dfrac{1}{m}$ 은 $\{ \mathbf{x}^{(i)} \}_{1\le i \le m}$ 의 각 sample 에 대한 empirical distribution $\hat{P}$ 에서의 확률로 이해할 수 있으므로
+이때, $\dfrac{1}{m}$ 은 $\{ \mathbf{x}^{(i)} \}_{1\le i \le m}$ 의 각 sample 에 대한 empirical distribution $P$ (not quite satisfactory representation of the true distribution) 에서의 확률로 이해할 수 있으므로
 
 $$ 
 \begin{align*}
 \theta_{ML} 
-&= \mathop{\text{argmin}}\limits_{\theta} -E_{\hat{P}}[\log P(\mathbf{x};\theta)] \\
-&= \mathop{\text{argmin}}\limits_{\theta} H(\hat{P}, P)
+&= \mathop{\text{argmin}}\limits_{\theta} -E_{P}[\log Q(\mathbf{x};\theta)] \\
+&= \mathop{\text{argmin}}\limits_{\theta} H(P, Q)
 \end{align*}
 $$
 
-따라서 cross entropy 최적화는 MLE 와 동일하며, 또한 2에 의해 empirical distribution 과 true distribution 을 일치시키려는 과정이다.
+따라서 cross entropy 최적화는 MLE 와 동일하며,  
+[2](#2-cross-entropy-hpq-and-kld)에 의해 model $Q$ 와 empirical distribution $P$ 를 일치시키려는 과정이다.
+
+> *We want to find the distribution* $Q$ *that is as close as possible to* $P$*. (P)*
 
 
 ## Reference
-Deep Learning, Ian Goodfellow
+
+(D) Deep Learning, Ian Goodfellow  
+
+(P) Probability Machine Learnin: An Introduction, Christopher Bishop
