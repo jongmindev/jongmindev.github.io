@@ -132,4 +132,4 @@ $$
 
 ## Reference
 - (D) Deep Learning, Ian Goodfellow  
-- (P) Probability Machine Learnin: An Introduction, Christopher Bishop
+- (P) Probability Machine Learning: An Introduction, Christopher Bishop
