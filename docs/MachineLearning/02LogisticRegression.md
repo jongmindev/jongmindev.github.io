@@ -110,7 +110,7 @@ A hyperplain $ \mathbf{w}_i^T \mathbf{x} = c $ is called **decision boundary**.
 
 ### discriminative setting (binary classification)
 
-- ground truth $y \in \{+1, -1\}$
+- ground truth $y \in \lbrace +1, -1 \rbrace $
 - predicted score $\hat{y} \in \mathbb{R}$
 - margin $y \hat{y}$
 
@@ -118,7 +118,7 @@ margin-based loss function
 
 |0/1 loss|log loss|exponential loss|hinge loss|
 |:---:|:---:|:---:|:---:|
-|$I_{(y\hat{y}<0)}$|$\text{log}(1 + e^{-y \hat{y}})$|$e^{-y \hat{y}}$|$\text{max}\{ 0, 1- y \hat{y} \}$|
+|$I_{(y\hat{y}<0)}$|$\text{log}(1 + e^{-y \hat{y}})$|$e^{-y \hat{y}}$|$\text{max}\lbrace 0, 1- y \hat{y} \rbrace$|
 |not continuous <br/> not diff'able <br/> at $y \hat{y}=0$|interpretable <br/> $p(y \vert x)$ <br/> (logistic regression)|vulnerable to outliers|computationally efficient <br/> (SVM)|
 
 
@@ -131,8 +131,8 @@ margin-based loss function
 
 ### probabilistic setting
 
-- ground truth $y \in \{ 0, 1\}$ for a binary classification
-- ground truth $\mathbf{y} = (y_k) \in \{ 0, 1 \}^K$ : an one-hot vector for a multi-class classification
+- ground truth $y \in \lbrace 0, 1 \rbrace $ for a binary classification
+- ground truth $\mathbf{y} = (y_k) \in \lbrace 0, 1 \rbrace ^K$ : an one-hot vector for a multi-class classification
 - predicted score $\hat{\mathbf{y}} \in [0,1]^K$
 - compare two probability distribution, *our model* and *the empirical distribution*  
 [information theory](/docs/Statistics/InformationTheory.md#3-cross-entropyhpq-and-mle)
@@ -153,3 +153,98 @@ $$
 $$
 
 for our model (estimated distribution) $\hat{P}$.
+
+
+## 4. gradient descent : probabilistic setting
+
+### binary classification
+
+$$
+\mathcal{L} = - \frac{1}{m} \sum_{i=1}^{m} \Big[ y_i \text{log}(\hat{y}_i) + (1-y_i) \text{log}(1 - \hat{y}_i) \Big]
+$$
+
+where $\hat{y}_i = \sigma(\mathbf{w}^T\mathbf{x}_i) := \sigma(z_i)$.
+
+<details>
+    <summary> step-by-step </summary>
+Note that $\sigma^\prime(x) = \sigma(x) \big( 1 - \sigma(x) \big)$.
+
+Let
+
+$$
+\begin{align*}
+    l_0(\mathbf{w})
+    &= (1-y_i) \text{log}(1 - \hat{y}_i) \\
+    &= (1-y_i) \text{log} \big( 1 - \sigma(\mathbf{w}^T\mathbf{x}_i) \big) \\
+    \\
+    l_1(\mathbf{w}) 
+    &= y_i \text{log}(\hat{y}_i) \\
+    &= y_i \text{log} \big( \sigma(\mathbf{w}^T\mathbf{x}_i) \big)
+\end{align*}
+$$
+
+Then,
+
+$$
+\begin{align*}
+    \frac{\partial l_0(\mathbf{w})}{\partial w_k}
+    &= (1 - y_i) \frac{1}{1-\sigma(z_i)} \Big[ -\sigma(z_i) \big( 1-\sigma(z_i) \big) \Big] \frac{\partial \mathbf{w}^T \mathbf{x}_i}{\partial w_k} \\
+    &= - (1-y_i) \sigma(z_i) x_{ik} \\
+    \\
+    \frac{\partial l_1(\mathbf{w})}{\partial w_k}
+    &= y_i \frac{1}{\sigma(z_i)} \Big[ \sigma(z_i) \big( 1-\sigma(z_i) \big) \Big] \frac{\partial \mathbf{w}^T \mathbf{x}_i}{\partial w_k} \\
+    &= y_i \big( 1-\sigma(z_i) \big) x_{ik} \\
+    \\
+    \frac{\partial l_0(\mathbf{w})}{\partial w_k} + \frac{\partial l_1(\mathbf{w})}{\partial w_k}
+    &= - x_{ik} \big( \sigma(z_i) - y_i \big) \\
+    &= - x_{ik} \big( \hat{y}_i - y_i \big)
+\end{align*}
+$$
+
+Therefore,
+
+$$
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial w_k} 
+    &= \frac{1}{m} \sum_{i=1}^{m} x_{ik} \big( \sigma(z_i) - y_i \big) \\
+    &= \frac{1}{m} 
+    \begin{bmatrix}
+        x_{1k} \\
+        x_{2k} \\
+        \vdots \\
+        x_{mk}
+    \end{bmatrix}^T
+    (\hat{\mathbf{y}} - \mathbf{y})
+\end{align*}
+$$
+
+Note that 
+$
+\begin{bmatrix}
+    x_{1k} \\
+    x_{2k} \\
+    \vdots \\
+    x_{mk}
+\end{bmatrix}^T
+$
+is the *k*-th column of the feature matrix $X$.
+
+Hence, 
+
+</details>
+
+$$
+\frac{\partial \mathcal{L}(\mathbf{w})}{\partial \mathbf{w}}
+= \frac{1}{m} X^T (\hat{\mathbf{y}} - \mathbf{y})
+$$
+
+We obtain
+
+$$
+\mathbf{w} 
+\leftarrow 
+\mathbf{w} - \alpha \cdot \frac{1}{m} X^T (\hat{\mathbf{y}} - \mathbf{y})
+$$
+
+This is the same result as in the case of a [linear regression](/docs/MachineLearning/01LinearRegression.md#gradient-descent).
+
