@@ -40,13 +40,13 @@ $$
 - softmax function (generalized sigmoid) : $(-\infty, \infty)^n \rightarrow (0, 1)^n$
 
 $$
-\sigma(\mathbf{x})_i = \frac{e^{x_i}}{\sum_{k=1}^{n} e^{x_k}} = \frac{e^{x_i}}{e^{x_1} + e^{x_2} + \cdots + e^{x_n}}
+\bm\sigma(\mathbf{x})_i = \frac{e^{x_i}}{\sum_{k=1}^{n} e^{x_k}} = \frac{e^{x_i}}{e^{x_1} + e^{x_2} + \cdots + e^{x_n}}
 $$
 
 If $n=2$ (binary, sigmoid)
 
 $$
-\sigma({\mathbf{x}})_1 = \frac{e^{x_1}}{e^{x_1} + e^{x_2}} = \frac{1}{1 + e^{x_2 - x_1}} 
+\bm\sigma({\mathbf{x}})_1 = \frac{e^{x_1}}{e^{x_1} + e^{x_2}} = \frac{1}{1 + e^{x_2 - x_1}} = \sigma(x_2 - x_1)
 $$
 
 thus domain of sigmoid function can be interpreted as the **score difference**.
@@ -67,7 +67,7 @@ $$
 
 $$
 P(y = c_i \vert \mathbf{x})
-= \sigma(W \mathbf{x})_i
+= \bm\sigma(W \mathbf{x})_i
 = \frac{e^{\mathbf{w}_i^T \mathbf{x}}}{e^{\mathbf{w}_1^T \mathbf{x}} + e^{\mathbf{w}_2^T \mathbf{x}} + \cdots + e^{\mathbf{w}_k^T \mathbf{x}}}
 ,
 
@@ -187,17 +187,17 @@ Then,
 
 $$
 \begin{align*}
-    \frac{\partial l_0(\mathbf{w})}{\partial w_k}
-    &= (1 - y_i) \frac{1}{1-\sigma(z_i)} \Big[ -\sigma(z_i) \big( 1-\sigma(z_i) \big) \Big] \frac{\partial \mathbf{w}^T \mathbf{x}_i}{\partial w_k} \\
-    &= - (1-y_i) \sigma(z_i) x_{ik} \\
+    \frac{\partial l_0(\mathbf{w})}{\partial w_j}
+    &= (1 - y_i) \frac{1}{1-\sigma(z_i)} \Big[ -\sigma(z_i) \big( 1-\sigma(z_i) \big) \Big] \frac{\partial \mathbf{w}^T \mathbf{x}_i}{\partial w_j} \\
+    &= - (1-y_i) \sigma(z_i) x_{ij} \\
     \\
-    \frac{\partial l_1(\mathbf{w})}{\partial w_k}
-    &= y_i \frac{1}{\sigma(z_i)} \Big[ \sigma(z_i) \big( 1-\sigma(z_i) \big) \Big] \frac{\partial \mathbf{w}^T \mathbf{x}_i}{\partial w_k} \\
-    &= y_i \big( 1-\sigma(z_i) \big) x_{ik} \\
+    \frac{\partial l_1(\mathbf{w})}{\partial w_j}
+    &= y_i \frac{1}{\sigma(z_i)} \Big[ \sigma(z_i) \big( 1-\sigma(z_i) \big) \Big] \frac{\partial \mathbf{w}^T \mathbf{x}_i}{\partial w_j} \\
+    &= y_i \big( 1-\sigma(z_i) \big) x_{ij} \\
     \\
-    \frac{\partial l_0(\mathbf{w})}{\partial w_k} + \frac{\partial l_1(\mathbf{w})}{\partial w_k}
-    &= - x_{ik} \big( \sigma(z_i) - y_i \big) \\
-    &= - x_{ik} \big( \hat{y}_i - y_i \big)
+    \frac{\partial l_0(\mathbf{w})}{\partial w_j} + \frac{\partial l_1(\mathbf{w})}{\partial w_j}
+    &= - x_{ij} \big( \sigma(z_i) - y_i \big) \\
+    &= - x_{ij} \big( \hat{y}_i - y_i \big)
 \end{align*}
 $$
 
@@ -205,14 +205,14 @@ Therefore,
 
 $$
 \begin{align*}
-    \frac{\partial \mathcal{L}}{\partial w_k} 
-    &= \frac{1}{m} \sum_{i=1}^{m} x_{ik} \big( \sigma(z_i) - y_i \big) \\
+    \frac{\partial \mathcal{L}}{\partial w_j} 
+    &= \frac{1}{m} \sum_{i=1}^{m} x_{ij} \big( \sigma(z_i) - y_i \big) \\
     &= \frac{1}{m} 
     \begin{bmatrix}
-        x_{1k} \\
-        x_{2k} \\
+        x_{1j} \\
+        x_{2j} \\
         \vdots \\
-        x_{mk}
+        x_{mj}
     \end{bmatrix}^T
     (\hat{\mathbf{y}} - \mathbf{y})
 \end{align*}
@@ -221,13 +221,13 @@ $$
 Note that 
 $
 \begin{bmatrix}
-    x_{1k} \\
-    x_{2k} \\
+    x_{1j} \\
+    x_{2j} \\
     \vdots \\
-    x_{mk}
-\end{bmatrix}^T
+    x_{mj}
+\end{bmatrix}
 $
-is the *k*-th column of the feature matrix $X$.
+is the *j*-th column of the feature matrix $X$.
 
 Hence, 
 
