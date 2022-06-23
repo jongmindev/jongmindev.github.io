@@ -92,8 +92,8 @@ $M$ : (symetric) positive definite
 $$ (\lambda, \mathbf{x}) S\mathbf{x}=\lambda M\mathbf{x} \iff (\lambda, \mathbf{y})H\mathbf{y} = \lambda \mathbf{y} $$
 
 $ H = M^{-1/2}SM^{-1/2} $ : symetric and similar to $S$, (positive definite if $S$ is so)  
-$ \\{ \mathbf{y}_i \\} $ : orthonormal eigenvectors set  
-$ \\{ \mathbf{x}_i \\} = \{ M^{-1/2}\mathbf{y}_i \} $ : $M$-orthogonal eigenvectors set
+$ \lbrace \mathbf{y}_i \rbrace $ : orthonormal eigenvectors set  
+$ \lbrace \mathbf{x}_i \rbrace = \lbrace M^{-1/2}\mathbf{y}_i \rbrace $ : $M$-orthogonal eigenvectors set
 
 ### (3) Properties
-$ \\{\mathbf{x}_i\\} $ : M-orthogonal ($\mathbf{x}_1^T M \mathbf{x}_2=0$)
+$ \lbrace \mathbf{x}_i \rbrace $ : M-orthogonal ($\mathbf{x}_1^T M \mathbf{x}_2=0$)

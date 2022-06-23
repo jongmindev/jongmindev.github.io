@@ -21,7 +21,7 @@ parent : Machine Learning
 
 ### model
 
-- response variable $y$, responding regressor variables $\{x_i\}_k$
+- response variable $y$, responding regressor variables $\lbrace x_i \rbrace _k$
 - $y = w_0 + w_1 x_1+ w_2 x_2 + \cdots + w_k x_k + \epsilon$ for each response variable values  
 $\epsilon \overset{\text{iid}}{\sim} N(0, \sigma^2)$
 - matrix notation :  
@@ -31,20 +31,20 @@ $\mathbf{\epsilon} \overset{\text{iid}}{\sim} N(\mathbf{0}, \sigma^2 I_n)$
 $$
 \mathbf{y} = 
 \begin{bmatrix}
-y_1 \\
-y_2 \\
-\vdots \\
-y_n
+    y_1 \\
+    y_2 \\
+    \vdots \\
+    y_n
 \end{bmatrix},
 
 \quad
 
 X =
 \begin{bmatrix}
-1 & x_{11} & x_{12} & \cdots & x_{1k} \\
-1 & x_{21} & x_{22} & \cdots & x_{2k} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-1 & x_{n1} & x_{n2} & \cdots & x_{nk} \\
+    1 & x_{11} & x_{12} & \cdots & x_{1k} \\
+    1 & x_{21} & x_{22} & \cdots & x_{2k} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    1 & x_{n1} & x_{n2} & \cdots & x_{nk} \\
 \end{bmatrix},
 
 \quad
@@ -110,15 +110,20 @@ parameter update : $\mathbf{w} \leftarrow \mathbf{w} - \alpha \mathcal{L}^\prime
 
 From 
 
-$$ 
-\mathcal{L}^\prime(\mathbf{w}) = \dfrac{1}{k} X^T (X \mathbf{w} - \mathbf{y}) $$
+$$
+\begin{align*}
+    \mathcal{L}^\prime(\mathbf{w}) 
+    &= \frac{1}{k} X^T (X \mathbf{w} - \mathbf{y}) \\
+    &= \frac{1}{k} X^T (\hat{\mathbf{y}} - \mathbf{y})
+\end{align*}
+$$
 
 we obtain
 
 $$
 \mathbf{w} 
 \leftarrow 
-\mathbf{w} - \alpha \cdot \frac{1}{k} X^T (X \mathbf{w} - \mathbf{y})
+\mathbf{w} - \alpha \cdot \frac{1}{k} X^T (\hat{\mathbf{y}} - \mathbf{y})
 $$
 
 

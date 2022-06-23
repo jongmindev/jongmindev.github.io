@@ -21,7 +21,7 @@ parent : Linear Algebra Basic
 ## 0. Symmetric Matrix
 1. Properties
     - $\forall \lambda$ : real
-    - $\exists \{x_i\}$ : orthonormal and full (spans $V$). ($\implies$ diagonalizable : spectral thm. )  
+    - $\exists \lbrace x_i \rbrace$ : orthonormal and full (spans $V$). ($\implies$ diagonalizable : spectral thm. )  
 2. Spectral Theorem
 
 $$ S = Q \Lambda Q^T $$

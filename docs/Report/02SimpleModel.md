@@ -38,8 +38,8 @@ parent : Markov Process and Expected Value
 
 ## 2. Markov chain (Markov Process)
 
-### **Definition**. *Markov property*, *Markov chain* $\{X_1, X_2, \cdots\}$
-Series of random variables (Stochastic Process) $\{X_1, X_2, \cdots\}$ is a *Markov chain* if  
+### **Definition**. *Markov property*, *Markov chain* $\lbrace X_1, X_2, \cdots\rbrace$
+Series of random variables (Stochastic Process) $\lbrace X_1, X_2, \cdots\rbrace$ is a *Markov chain* if  
 
 $$\forall t, \mathbf{P}(X_{t+1}|X_1, X_2, \cdots, X_t) = \mathbf{P}(X_{t+1}|X_t)$$
 
@@ -61,7 +61,7 @@ An *absorbing Markov chain* is a Markov chain of which every state can reach an 
 ## 3. 모델링 - absorbing Markov Process
 
 ### **Definition** *transition matrix* $P=(p_{ij})$
-The transition matrix $P=(p_{ij})$ of the Markov chain $\{X_1, X_2, \cdots\}$ is a matrix such that
+The transition matrix $P=(p_{ij})$ of the Markov chain $ \lbrace X_1, X_2, \cdots \rbrace $ is a matrix such that
 
 $$ p_{ij} = P(X_j|X_i)$$
 

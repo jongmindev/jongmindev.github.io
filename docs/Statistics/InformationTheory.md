@@ -103,7 +103,7 @@ $$
 \end{align*}
 $$
 
-where $\{ \mathbf{x}^{(i)} \}_{1\le i \le m}$ is a set of sample from random distribution $X$.  
+where $ \lbrace \mathbf{x}^{(i)} \rbrace _{1\le i \le m}$ is a set of sample from random distribution $X$.  
 
 For calculation reasons, redefine $\theta_{ML}$ as below (scaled negative log-likelihood):
 
@@ -114,7 +114,7 @@ $$
 \end{align*}
 $$
 
-이때, $\dfrac{1}{m}$ 은 $\{ \mathbf{x}^{(i)} \}_{1\le i \le m}$ 의 각 sample 에 대한 empirical distribution $P$ (not quite satisfactory representation of the true distribution) 에서의 확률로 이해할 수 있으므로
+이때, $\dfrac{1}{m}$ 은 $\lbrace \mathbf{x}^{(i)} \rbrace _{1\le i \le m}$ 의 각 sample 에 대한 empirical distribution $P$ (not quite satisfactory representation of the true distribution) 에서의 확률로 이해할 수 있으므로
 
 $$ 
 \begin{align*}

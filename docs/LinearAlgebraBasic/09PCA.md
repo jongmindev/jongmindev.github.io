@@ -67,7 +67,7 @@ $\mathbf{u}_1$ : the 1st singular vector of centralized dataset $X$
 
 ### (3) proof
 Let $P = \mathbf{e}\mathbf{e}^T$. Then $P^2 = P = P^T$ since $\mathbf{e}$ is a unit.  
-Thus $P$ is an orthogonal projection matrix onto $C(P) = \text{span}(\mathbf{\{e\}})$.  
+Thus $P$ is an orthogonal projection matrix onto $C(P) = \text{span}(\mathbf{\lbrace e\rbrace })$.  
 
 $$ d(\mathbf{e}) = \sum_{i=1}^{m}\lVert\mathbf{x}_i-P\mathbf{x}_i\lVert $$
 
