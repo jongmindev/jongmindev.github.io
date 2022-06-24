@@ -17,7 +17,15 @@ parent : Machine Learning
 
 ---
 
-정확도는 떨어지지만 기초가 되는 알고리즘
+## 0. Performance
+
+Not good  
+Low bias and high variance : overfitting  
+
+|Algorithm|Bias|variance|
+|:---:|:---:|:---:|
+|Decision Tree|low|high|
+|Linear Regression|high|low|
 
 ## 1. various Indicators of Impurity
 
