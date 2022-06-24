@@ -19,13 +19,14 @@ parent : Machine Learning
 
 ## 1. Bagging (decrease variance) : Bootstrapping + Aggregating 
 
-- Bootstrapping : generate new traing sets by **uniformly sampling with replacement** from the standard traing set
+- Bootstrapping : generate new traing sets by **uniformly sampling with replacement** from the standard traing set  
+(cf) bootstrap (n.) : better oneself by rigorous, unaided effort [(Source)](https://www.etymonline.com/search?q=bootstrap)
 - Aggregating : aggregate the results of multiple models.  
 (ex) Random Forest  
 
 |![bagging flow](/docs/MachineLearning/images/bagging.png)|
 |:---:|
-|bagging flow. [source](https://corporatefinanceinstitute.com/resources/knowledge/other/bagging-bootstrap-aggregation/)|
+|bagging flow. [(Source)](https://corporatefinanceinstitute.com/resources/knowledge/other/bagging-bootstrap-aggregation/)|
 
 
 ### (1) Statistics - variance reduction
@@ -51,6 +52,15 @@ where $\rho$ is the pairwise correlation, if $n \ge 2$ and $\rho \ne 1$ (multipl
 
 Thus by bagging, sampling and averaging, **we obtain an ensemble model with lower variance and the same bias**.
 
+Recall, 
+
+|Algorithm|Bias|variance|
+|:---:|:---:|:---:|
+|Decision Tree|low|high|
+|Linear Regression|high|low|
+
+> That is why the effect of using Bagging together with Linear Regression is low. [(Source)](https://towardsdatascience.com/understanding-the-effect-of-bagging-on-variance-and-bias-visually-6131e6ff1385)
+
 On the other hand, 
 
 $$
@@ -74,7 +84,7 @@ From the equation $(2)$, **the lower correlation between sub-models** ($\rho$), 
     > **(Property 2)** Since a single model is never shown the complete dataset, it’s ability to memorise is significantly constrained. Thus **we can avoid overfitting**(reduce the variance).  
     **(Property 2)** Bagging is most **effective when each sub-model is uncorrelated** by **learning relationships across different components of the data set**.  
     You can extract **prediction intervals**.  
-    [Conor Mc., Why Bagging Works](https://towardsdatascience.com/why-bagging-works-b9961354ee73)
+    [(Source) Conor Mc., Why Bagging Works](https://towardsdatascience.com/why-bagging-works-b9961354ee73)
 
 - Disadvantages
     > a loss of **interpretability** of a model  
@@ -84,12 +94,12 @@ From the equation $(2)$, **the lower correlation between sub-models** ($\rho$), 
 
 ### (3) Random Forest : a representative bagging model
 
-It builds decision trees on different samples and takes their majority vote for classification and average in case of regression.  
-[Sruthi E R, Understanding Random Forest](https://www.analyticsvidhya.com/blog/2021/06/understanding-random-forest/)
+It builds decision trees on different samples and takes their majority vote for classification and average in case of regression. [(Source) Sruthi E R, Understanding Random Forest](https://www.analyticsvidhya.com/blog/2021/06/understanding-random-forest/)
 
 For not maximally correlated trees **(Property 2)**,  
+[(Source) Dr. Robert Kübler, Understanding the Effect of Bagging on Variance and Bias visually](https://towardsdatascience.com/understanding-the-effect-of-bagging-on-variance-and-bias-visually-6131e6ff1385)  
 - Use a **random subset of the training samples (bootstrapping)** for each tree. 
-- Use a **random subset of features** in each step of growing each tree.
+- Use a **random subset of features (learning different relationships)** in each step of growing each tree.
 - anything else can be added to lower correlation between sub-models.
 
 
