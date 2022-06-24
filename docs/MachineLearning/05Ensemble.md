@@ -4,6 +4,7 @@ title : 05 Ensemble
 nav_order : 5
 math: mathjax3 
 parent : Machine Learning
+has_children : true
 ---
 
 # Ensemble
