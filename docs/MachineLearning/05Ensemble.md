@@ -14,10 +14,14 @@ Common types of Ensembles
 {: .fs-6 .fw-300 }
 
 
-## 1. Bagging (decrease variance) : Bootstrapping + Aggregating 
+## 1. Bagging (decrease variance)
+
+: Bootstrapping + Aggregating 
 
 
-## 2. Boosting (decrease bias) : Several *sequential* weak learners build a strong learner.  
+## 2. Boosting (decrease bias)
+
+: Several *sequential* weak learners build a strong learner.  
 
 
 ## 3. Stacking (improve predictions)

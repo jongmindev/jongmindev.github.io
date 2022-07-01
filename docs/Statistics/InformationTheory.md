@@ -92,7 +92,7 @@ Thus,
 $$ \min_{Q} H(P,Q) = \min_{Q} D_{KL}(P \Vert Q) $$
 
 $P(x)$ 를 데이터의 true 분포, $Q(x)$ 를 모델이 추정한 데이터의 분포라고 이해한다면,  
-비용함수로서의 Cross Entropy 최적화는 추정 분포 $Q(x)$ 를 true 분포 $P(x)$ 와 가깝게 만드는 것으로 볼 수 있다.
+비용함수로서의 Cross Entropy 최적화는 추정 분포(model) $Q(x)$ 를 true 분포(사실은 empirical distribution) $P(x)$ 와 가깝게 만드는 것으로 볼 수 있다.
 
 ## 3. Cross Entropy $H(P,Q)$ and MLE
 

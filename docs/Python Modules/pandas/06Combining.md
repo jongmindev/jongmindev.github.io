@@ -25,12 +25,12 @@ import pandas as pd
 ## Comparison
 
 In order of increasing complexity, these are `concat()`, `join()`, and `merge()`
+
 |`concat()`|`join()`|`merge()`|
 |:--------:|:------:|:-----:|
 |가로로 합치기 O<br/>세로로 합치기 O|~~가로로 합치기 X~~<br/>세로로 합치기 O|~~가로로 합치기 X~~<br/>세로로 합치기 O|
 |left_on X<br/>right_on X|left_on O<br/>right_on X|left_on O<br/>right_on O|
 |join : *{‘inner’, ‘outer’}*|how : *{‘left’, ‘right’, ‘outer’, ‘inner’}*|how : *{‘left’, ‘right’, ‘outer’, ‘inner’, ‘cross’}*|
-||||
 
 
 ## 3 Methods for Combining

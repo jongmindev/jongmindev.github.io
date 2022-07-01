@@ -120,7 +120,7 @@ where $Z_{t}$ is a normalizer to make $\mathcal{D}\sb{t+1}$ also a distribution
 **Output:** the final hypothesis $H(x)$ :
 
 $$
-H(x) = \text{sign} \left( \sum_{t=1}^T \alpha_t h_t(x) \right)
+H(x) = \text{sign} \left( \sum_{t=1}^T \alpha_t h_t(x) \right) \in \mathcal{Y} = \lbrace -1, +1 \rbrace
 $$
 
 *explanation*
