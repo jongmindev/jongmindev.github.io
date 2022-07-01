@@ -43,6 +43,7 @@ $$ H(P) = \sum_x -P(x) \log P(x) $$
 
 where $P$ is a probability distribution of $X$.
 
+{: .quote }
 > *(?) It gives a lower bound on the number of bits (if the logarithm is base 2, otherwise the units are different) needed on average to encode symbols drawn from a distribution P. (D)*
 
 
@@ -50,6 +51,7 @@ where $P$ is a probability distribution of $X$.
 
 $$ H(P,Q) = - E_{x \sim P} [\log Q(x)] = \sum_x -P(x) \log Q(x) $$
 
+{: .quote }
 > **Shannon’s source coding theorem**  
 *The cross entropy is the expected number of bits needed to compress some data samples drawn from distribution p using a code based on distribution q. (P)*
 
@@ -67,6 +69,7 @@ D_{KL}(P \Vert Q)
 \end{align*}
 $$
 
+{: .quote }
 > *The “extra number of bits” you need to pay when compressing data samples from p using the incorrect distribution q as the basis of your coding scheme. (P)*
 
  - properties : not a metric
@@ -76,8 +79,10 @@ $$
 
 KLD 는 두 확률분포 $P$, $Q$ 의 차이를 계량화한다.  
 
+{: .quote }
 > *(?) In the case of discrete variables, it is the extra amount of information (measured in bits if we use the base 2 logarithm, but in machine learning we usually use nats and the natural logarithm) needed to send a message containing symbols drawn from probability distribution P, when we use a code that was designed to minimize the length of messages drawn from probability distribution Q. (D)*  
 
+{: .quote }
 > P 의 방식으로 P 를 압축한 것에 비해, Q 의 방식으로 P 를 압축했을 때 생기는 비효율성?
 
 
@@ -127,6 +132,7 @@ $$
 따라서 cross entropy 최적화는 MLE 와 동일하며,  
 [2](#2-cross-entropy-hpq-and-kld)에 의해 model $Q$ 와 empirical distribution $P$ 를 일치시키려는 과정이다.
 
+{: .quote }
 > *We want to find the distribution* $Q$ *that is as close as possible to* $P$*. (P)*
 
 
