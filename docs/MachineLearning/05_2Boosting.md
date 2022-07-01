@@ -113,9 +113,9 @@ where $\mathcal{D}_t$ is a distribution such that $\mathcal{D}_t(i)$ is the weig
 - *Train* the $t$-th weak learner $h_t : \mathcal{X} \rightarrow \mathcal{Y}$ with the data distribution $\mathcal{D}_t$  
 (choose the *best* $h_t$)
 - Compute the learner weight $\alpha_t = \dfrac{1}{2} \text{log} \dfrac{1- \epsilon_t}{\epsilon_t}$  
-where $\let\sb_$ $\epsilon_t = \sum\limits_{i} \mathcal{D}_{t} (i) \cdot \text{I}_{(h_t(x_i) \ne y_i)}$ : sum of weight of samples predicted wrong
-- Update $\mathcal{D}\sb{t+1}(i) = \mathcal{D}\sb{t}(i) \cdot \dfrac{\text{exp} \big( - \eta \alpha\sb{t} y\sb{i} h\sb{t} (x\sb{i}) \big)}{Z\sb{t}}$  
-where $Z\sb{t}$ is a normalizer to make $\mathcal{D}\sb{t+1}$ also a distribution  
+where $\let\sb_$ $\epsilon_t = \sum\limits_{i} \mathcal{D}\sb{t} (i) \cdot \text{I}_{(h_t(x_i) \ne y_i)}$ : sum of weight of samples predicted wrong
+- Update $\mathcal{D}\sb{t+1}(i) = \mathcal{D}\sb{t}(i) \cdot \dfrac{\text{exp} \big( - \eta \alpha_{t} y_{i} h_{t} (x_{i}) \big)}{Z_{t}}$  
+where $Z_{t}$ is a normalizer to make $\mathcal{D}\sb{t+1}$ also a distribution  
 
 **Output:** the final hypothesis $H(x)$ :
 
