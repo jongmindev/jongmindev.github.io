@@ -3,7 +3,8 @@ layout : default
 title : 01 Linear Regression
 nav_order : 1
 math: mathjax3
-parent : Machine Learning
+grand_parent : Machine Learning
+parent : 01 Regression
 ---
 
 # Linear Regression

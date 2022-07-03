@@ -3,7 +3,8 @@ layout : default
 title : 02 Logistic Regression
 nav_order : 2
 math: mathjax3
-parent : Machine Learning
+grand_parent : Machine Learning
+parent : 01 Regression
 ---
 
 # Logistic Regression
@@ -16,6 +17,8 @@ parent : Machine Learning
 {:toc}
 
 ---
+
+*Linear Classifier by affine transformation*
 
 ## 0. sigmoid / softmax function
 
