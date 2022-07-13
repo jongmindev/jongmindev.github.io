@@ -22,11 +22,14 @@ parent : built-in
 
 ### ```<<variable>> = <<expression>> ```
 
-- Step 1: *Evaluate* the expression to produce a value. This value is stored in a memory object.
-- Step 2: Store the **address** of the memory object in the variable.  
+- **Step 1**:  
+*Evaluate* the expression to produce a value. This value is stored in a memory object.
+- **Step 2**:  
+Store the **address** of the memory object in the variable.  
 (If the variable already exists, replace the memory address that is contains.)
-- Result: The **variable** *points* the memory where the **value** is stored.  
-implementation : A (proper) *namespace*(```dict```) has the pair of the ```key``` **variable**(```str```) and the ```value``` **value**(```object```).
+- **Result**:  
+The **variable** *points* the memory where the **value** is stored.  
+*implementation* : A (proper) *namespace*(```dict```) has the pair of the ```key``` **variable**(```str```) and the ```value``` **value**(```object```).
 
 ### example
 
@@ -65,7 +68,11 @@ output :
 
 ### ```myfunc(arg1, agr2, ...)```
 
-- Step 1: *Evaluate* the **arguments** left to right.
-- Step 2: Create a **namespace** to hold the function call's **local variables**, including the parameters.
-- Step 3: Pass the resulting **argument values** into the fuction by assigning them to the **parameters**.
-- Step 4: Execute the **function body**. When a **return** statement is executed, the function terminates and the value of the expression in the return statement is used as the value of the function call.
+- **Step 1**:  
+*Evaluate* the **arguments** left to right.
+- **Step 2**:  
+Create a **namespace** to hold the function call's **local variables**, including the parameters.
+- **Step 3**:  
+Pass the resulting **argument values** into the fuction by assigning them to the **parameters**.
+- **Step 4**:  
+Execute the **function body**. When a **return** statement is executed, the function terminates and the value of the expression in the return statement is used as the value of the function call.
