@@ -1,7 +1,7 @@
 ---
 layout : default
 title : pandas
-nav_order : 1
+nav_order : 3
 parent : Python Modules
 has_children : true
 ---
@@ -9,11 +9,8 @@ has_children : true
 # pandas
 {: .no_toc }
 
-## Table of contents
-{: .no_toc .text-delta }
-
-- TOC
-{:toc}
+DESCRIPTION
+{: .fs-6 .fw-300 }
 
 ---
 
